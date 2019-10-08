@@ -131,14 +131,24 @@ for _ in 0..<10 {
 ```
 Answer: 
 ```swift
-var sumofSomeNumber = 0
+//a. find the sum
+var sum = 0
+for num in numbers {
+    sum += num ?? 0
+}
+print("the sum of all the numbers is \(sum)")
 
-for num in numberZ {
-    if let someNumber = num {
-    sumofSomeNumber += someNumber
+//b. find the average
+sum = 0
+var nonNilValueCount = 0
+
+for num in numbers {
+    if let unwrappedNum = num {
+        nonNilValueCount += 1
+        sum += unwrappedNum
     }
 }
-print(sumofSomeNumber)
+print("the average of the \(nonNilValueCount) non-nil values is \(sum / nonNilValueCount)")
 ```
 b. Using the same variable, find the average of all non-nil values.
 
